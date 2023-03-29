@@ -1,26 +1,23 @@
-const { reject } = require("core-js/fn/promise")
-
 module.exports = (rows) => {
     return new Promise((resolve, reject) => {
-        try {
+        try{
             const data = rows
-                         .filter(filterValid)
-                         .map(removePonctuation)
-                         .map(removeTags)
-                         .reduce(mergeRows)
-                         .split(" ")
-                         .map(word => word.toLowerCase())
-
+                        .filter(filterValid)
+                        .map(removePonctuation)
+                        .map(removeTags)
+                        .reduce(mergeRows)
+                        .split(" ")
+                        .map(word=>word.toLowerCase())
+                        .map(word=>word.replace("\"", ""))
+            
             resolve(data)
-        }
-        catch (e) {
+        }catch(e){
             reject(e)
         }
-    }
-    )
-}
+    });
+};
 
-function filterValid(row){
+function filterValid(row) {
     const notNumber = !parseInt(row.trim());
     const notEmpty = !!row.trim();
     const notInterval = !row.includes("-->");
@@ -28,13 +25,13 @@ function filterValid(row){
 }
 
 function removePonctuation(row){
-    return now.replace(/[,?!:;.']/g,"")
+    return row.replace(/[,?!:;.-]/g,"")
 }
 
 function removeTags(row){
-    return now.replace(/(<[^>]+)>/g,"").trim()
+    return row.replace(/(<[^>]+)>/g,"").trim()
 }
 
 function mergeRows(fullText, rowText){
-return `${fullText} ${rowText}`
+    return `${fullText} ${rowText}`
 }

@@ -1,10 +1,11 @@
 const { ipcMain } = require("electron")
-const pathtoRows = require("./pathstoRows");
-const prepareData = require("./prepareData");
-const groupedWords = require("./groupedWords");
+
+const pathToRows = require("./pathsToRows")
+const prepareData = require("./prepareData")
+const groupWords = require("./groupWords")
 
 ipcMain.on("process-subtitles", (event, paths) => {
-    pathtoRows(paths)
+    pathToRows(paths)
     .then(rows => prepareData(rows))
     .then(preparedData=>groupWords(preparedData))
     .then(groupedWords=>{

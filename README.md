@@ -3,7 +3,7 @@ Este é um aplicativo desktop construído com [Vue](https://vuejs.org/) e [Elect
 ## Iniciando
 1. Clone o repositório
 bash
-git clone https://github.com/yourusername/vue-electron-word-counter.git
+git clone https://github.com/DaviJust/most_used_words_2023.git
 2. Instale as dependências
 bash
 npm install

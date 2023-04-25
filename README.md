@@ -17,10 +17,9 @@ npm run electron:build
 Isso compilará a aplicação Vue e criará a pasta dist_electron pronta para distribuição.
 ## Funcionalidades
 Esta aplicação permite:
-- Inserir ou colar um texto na caixa de texto 
 - Clicar em "Contar Palavras" para exibir o número de ocorrências de cada palavra no texto
 - As palavras são exibidas em ordem decrescente de contagem
-- Botão de limpeza para inserir um novo texto
+
 ## Tecnologias
 Esta aplicação usa:
 - [Vue](https://vuejs.org/) - Framework JavaScript para UI
